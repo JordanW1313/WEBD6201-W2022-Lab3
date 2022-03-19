@@ -229,7 +229,8 @@
             });
             if ($("#taskList").length === 0)
             {
-                $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="login"><i class="fa-solid fa-clipboard-list"></i> Task List</a></li>');
+                $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="task-list"><i class="fas fa-list"></i> Task List</a></li>');
+                
             }
             
         }
@@ -256,6 +257,11 @@
                     sessionStorage.setItem("user", newUser.serialize());
                     messageArea.removeAttr("class").hide();
                     LoadLink("contact-list");
+                    if ($("#taskList").length > 0)
+                    {
+                        $("#taskList").show();
+                
+                    }
                 }
                 else {
                     $("#username").trigger("focus").trigger("select");
