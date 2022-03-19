@@ -7,6 +7,7 @@ namespace core
         private m_emailAddress: string;
         private m_username: string;
         private m_password: string;
+        //test comment
 
         // getters and setters
         public get DisplayName(): string
