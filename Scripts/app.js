@@ -226,6 +226,12 @@
                 AddNavigationEvents();
                 LoadLink("login");
             });
+            if ($("#taskList").length === 0)
+            {
+                $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="task-list"><i class="fas fa-list"></i> Task List</a></li>');
+                
+            }
+            
         }
     }
     function DisplayLoginPage() {
@@ -250,6 +256,11 @@
                     sessionStorage.setItem("user", newUser.serialize());
                     messageArea.removeAttr("class").hide();
                     LoadLink("contact-list");
+                    if ($("#taskList").length > 0)
+                    {
+                        $("#taskList").show();
+                
+                    }
                 }
                 else {
                     $("#username").trigger("focus").trigger("select");
