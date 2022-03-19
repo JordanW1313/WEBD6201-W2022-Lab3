@@ -5,8 +5,7 @@
     function AuthGuard(): void
     {
         let protected_routes: string[] = [
-            "contact-list",
-            "task-list"
+            "contact-list"
         ];
     
     
@@ -530,6 +529,8 @@
       */
      function DisplayTaskList()
      {
+        AuthGuard();
+
          let messageArea = $("#messageArea");
          messageArea.hide();
          let taskInput = $("#taskTextInput");

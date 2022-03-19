@@ -2,8 +2,7 @@
 (function () {
     function AuthGuard() {
         let protected_routes = [
-            "contact-list",
-            "task-list"
+            "contact-list"
         ];
         if (protected_routes.indexOf(router.ActiveLink) > -1) {
             if (!sessionStorage.getItem("user")) {
@@ -227,7 +226,6 @@
                 AddNavigationEvents();
                 LoadLink("login");
             });
-            $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="login"><i class="fa-solid fa-clipboard-list"></i> Task List</a></li>');
         }
     }
     function DisplayLoginPage() {
@@ -296,6 +294,7 @@
         }
     }
     function DisplayTaskList() {
+        AuthGuard();
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
