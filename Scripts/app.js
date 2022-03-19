@@ -226,6 +226,7 @@
                 AddNavigationEvents();
                 LoadLink("login");
             });
+            $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="login"><i class="fa-solid fa-clipboard-list"></i> Task List</a></li>');
         }
     }
     function DisplayLoginPage() {
