@@ -299,7 +299,7 @@
                <input type="text" class="form-control edit-task editTextInput">
                </li>
                `;
-            $("#taskList").append(newElement);
+            $("#task-List").append(newElement);
             messageArea.removeAttr("class").hide();
             taskInput.val("");
         }
