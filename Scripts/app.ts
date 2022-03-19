@@ -529,7 +529,7 @@
       */
      function DisplayTaskList()
      {
-        AuthGuard();
+        //AuthGuard();
 
          let messageArea = $("#messageArea");
          messageArea.hide();
