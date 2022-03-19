@@ -2,7 +2,7 @@
 (function () {
     function AuthGuard() {
         let protected_routes = [
-            "contact-list"
+            "contact-list",
         ];
         if (protected_routes.indexOf(router.ActiveLink) > -1) {
             if (!sessionStorage.getItem("user")) {
@@ -231,7 +231,7 @@
             {
                 $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="task-list"><i class="fas fa-list"></i> Task List</a></li>');
                 $("#taskList").on("click", function () {
-                    LoadLink("task-list")
+                    LoadLink("task-list");
                 });
                 
             }
@@ -309,6 +309,7 @@
         }
     }
     function DisplayTaskList() {
+
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
