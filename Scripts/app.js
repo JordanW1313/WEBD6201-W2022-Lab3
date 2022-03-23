@@ -1,8 +1,18 @@
+/*************************************************************************************************************************************************
+ * Written By: Dakota Parrish 100764514, Jordan Wriker 100445715
+ * Program Name: WEBD6201-Lab3-Fun With Ajax
+ * Due Date: Wednesday March 23, 2022
+ * Description: Using what we learned from previous classes with AJAX, this lab demonstrates adding security to the task list page, and only 
+ * allows access to users who are currently signed in. We demonstrate adding the task-list page to a routing table, as well as demonstrating the
+ * use of the callback functions to show the active link on the newly created task-list page/nav item. This all demonstrates the use of AJAX to 
+ * create a SPA (Single-Page Application).
+ ************************************************************************************************************************************************/
 "use strict";
 (function () {
     function AuthGuard() {
         let protected_routes = [
             "contact-list",
+            //  PART D: Adds task-list to the protected routes
             "task-list"
         ];
         if (protected_routes.indexOf(router.ActiveLink) > -1) {
@@ -220,8 +230,10 @@
         }
     }
     function CheckLogin() {
+        //PART D: Hides the nav item if the user is NOT logged in
         $("#task-list").hide();
         if (sessionStorage.getItem("user")) {
+            //PART D: Shows the nav item once the user is logged in
             $("#task-list").show();
             $("#login").html(`<a id="logout" class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
             $("#logout").on("click", function () {
@@ -272,6 +284,10 @@
     }
     function Display404Page() {
     }
+    /**
+     * AddNewTask() - Adds a new task to the task list
+     *
+     */
     function AddNewTask() {
         let messageArea = $("#messageArea");
         messageArea.hide();
@@ -297,6 +313,10 @@
             messageArea.show().addClass("alert alert-danger").text("Please enter a valid Task.");
         }
     }
+    /**
+     * DisplayTaskList - Displays the Task List page
+     *
+     */
     function DisplayTaskList() {
         let messageArea = $("#messageArea");
         messageArea.hide();
@@ -345,6 +365,7 @@
             case "edit": return DisplayEditPage;
             case "login": return DisplayLoginPage;
             case "register": return DisplayRegisterPage;
+            //PART C: Adds the task list to the active link call back function 
             case "task-list": return DisplayTaskList;
             case "404": return Display404Page;
             default:
