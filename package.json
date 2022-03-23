@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "starter project for lab3",
   "main": "index.js",
-  "author": "Tom Tsiliopoulos",
+  "author": "Dakota Parrish and Jordan Wriker",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",

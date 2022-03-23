@@ -1,5 +1,5 @@
 /*************************************************************************************************************************************************
- * Written By: Dakota Parrish 100764514, Jordan Wriker 100445715
+ * Written By: Dakota Parrish 100764512, Jordan Wriker 100445715
  * Program Name: WEBD6201-Lab3-Fun With Ajax
  * Due Date: Wednesday March 23, 2022
  * Description: Using what we learned from previous classes with AJAX, this lab demonstrates adding security to the task list page, and only 
