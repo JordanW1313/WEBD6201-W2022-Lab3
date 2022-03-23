@@ -20,6 +20,7 @@
         $("ul>li>a").each(function () {
             $(this).removeClass("active");
         });
+        console.log(document.title);
         $(`li>a:contains(${document.title})`).addClass("active");
         CheckLogin();
         LoadContent();
@@ -219,24 +220,16 @@
         }
     }
     function CheckLogin() {
+        $("#task-list").hide();
         if (sessionStorage.getItem("user")) {
+            $("#task-list").show();
             $("#login").html(`<a id="logout" class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
             $("#logout").on("click", function () {
                 sessionStorage.clear();
-                $("#taskList").hide();
                 $("#login").html(`<a class="nav-link" data="login"><i class="fas fa-sign-in-alt"></i> Login</a>`);
                 AddNavigationEvents();
                 LoadLink("login");
             });
-            if ($("#taskList").length === 0)
-            {
-                $("#login").before('<li class="nav-item" id="taskList"><a class="nav-link" data="task-list"><i class="fas fa-list"></i> Task List</a></li>');
-                $("#taskList").on("click", function () {
-                    LoadLink("task-list");
-                });
-                
-            }
-            
         }
     }
     function DisplayLoginPage() {
@@ -261,11 +254,6 @@
                     sessionStorage.setItem("user", newUser.serialize());
                     messageArea.removeAttr("class").hide();
                     LoadLink("contact-list");
-                    if ($("#taskList").length > 0)
-                    {
-                        $("#taskList").show();
-                
-                    }
                 }
                 else {
                     $("#username").trigger("focus").trigger("select");
@@ -300,7 +288,7 @@
                <input type="text" class="form-control edit-task editTextInput">
                </li>
                `;
-            $("#task-List").append(newElement);
+            $("#taskList").append(newElement);
             messageArea.removeAttr("class").hide();
             taskInput.val("");
         }
@@ -310,7 +298,6 @@
         }
     }
     function DisplayTaskList() {
-
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
@@ -358,8 +345,8 @@
             case "edit": return DisplayEditPage;
             case "login": return DisplayLoginPage;
             case "register": return DisplayRegisterPage;
-            case "404": return Display404Page;
             case "task-list": return DisplayTaskList;
+            case "404": return Display404Page;
             default:
                 console.error("ERROR: callback does not exist: " + router.ActiveLink);
                 return new Function();
